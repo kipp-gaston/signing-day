@@ -1,20 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <title>Signing Day Live | KIPP Gaston College Prep Public Schools</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Signing Day" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Signing Day" %>">
+    <meta name="description" content="Signing Day Live | KIPP Gaston College Prep Public Schools">
+    <meta name="author" content="KIPP Gaston College Prep Public Schools">
+
+    <!-- <link href="/assets/css/app.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+
     <%= csrf_meta_tags %>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
+
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Signing Day Live | KIPP Gaston College Prep Public Schools</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
+

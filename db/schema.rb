@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425045102) do
+ActiveRecord::Schema.define(version: 20150425053901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 20150425045102) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "events", force: true do |t|
+    t.boolean  "current"
+    t.integer  "year"
+    t.integer  "donation_goal"
+    t.text     "donation_text"
+    t.text     "about_text"
+    t.string   "livestream_url"
+    t.string   "video_url"
+    t.string   "donation_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "current_donation_amount", default: 0.0
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
