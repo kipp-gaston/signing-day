@@ -5,6 +5,15 @@ class EventsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: {
+          current_donation_amount: event.current_donation_amount,
+          percentage: "#{(100 * event.current_donation_amount / event.donation_goal)}%"
+        }
+      }
+    end
   end
 
   def donate

@@ -1,8 +1,8 @@
 <div class="row">
   <div class="span12">
-    <h1>Our Progress: <small>$<span id="donation-total"><%= number_with_delimiter(event.current_donation_amount.to_i) %></span> of <%= number_to_currency(event.donation_goal, precision: 0) %> Goal</small></h1>
+    <h1>Our Progress: <small>$<span id="donation-total" data-status-url="<%= event_path(year: event.year, format: :json) %>"><%= number_with_delimiter(event.current_donation_amount.to_i) %></span> of <%= number_to_currency(event.donation_goal, precision: 0) %> Goal</small></h1>
     <div class="progress">
-      <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="<%= 100 * event.current_donation_amount / event.donation_goal %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= 100 * event.current_donation_amount / event.donation_goal %>%">
+      <div id="donation-progress-bar" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="<%= 100 * event.current_donation_amount / event.donation_goal %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= 100 * event.current_donation_amount / event.donation_goal %>%">
         <span class="sr-only"><%= 100 * event.current_donation_amount / event.donation_goal %>% Complete</span>
       </div>
     </div>

@@ -14,3 +14,18 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+
+var $donationTotalElement = $('#donation-total');
+var $donationProgressBar = $('#donation-progress-bar');
+var donation_status_url = $donationTotalElement.data('status-url');
+
+var update_donation_progress = function() {
+  $.get(donation_status_url, function(data) {
+    $donationTotalElement.html(data.current_donation_amount);
+    $donationProgressBar.css('width', data.percentage);
+  });
+};
+
+$(function() {
+  setInterval(update_donation_progress, 10000);
+});
